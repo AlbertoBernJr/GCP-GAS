@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio - Automação Google</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-card h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #e8f4fd;
+            color: #0366d6;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            margin: 5px;
+        }
+        
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .btn-code {
+            background: #24292e;
+            color: white;
+        }
+        
+        .btn-demo {
+            background: #4285f4;
+            color: white;
+        }
+        
+        .btn:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            opacity: 0.8;
+        }
+        
+        footer a {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Portfólio de Automações</h1>
+            <p>Transformando planilhas em sistemas inteligentes</p>
+        </header>
+        
+        <div class="project-grid">
+            <!-- Projeto 1 -->
+            <div class="project-card">
+                <h2>🏛️ Sistema Fiscal</h2>
+                <span class="badge">Google Sheets</span>
+                <span class="badge">Apps Script</span>
+                <p style="margin-top: 15px; color: #666;">
+                    Automação completa de cálculos tributários 
+                    com validação em tempo real
+                </p>
+                <p style="margin-top: 10px; color: #888;">
+                    📊 95% menos erros | ⚡ 3h → 15min
+                </p>
+                <div class="buttons">
+                    <a href="https://github.com/seuusuario/sistema-fiscal" 
+                       class="btn btn-code">💻 Código</a>
+                    <a href="https://docs.google.com/spreadsheets/d/SEU-ID" 
+                       class="btn btn-demo">📊 Demo</a>
+                </div>
+            </div>
+            
+            <!-- Projeto 2 -->
+            <div class="project-card">
+                <h2>📈 Dashboard Vendas</h2>
+                <span class="badge">Google Sheets</span>
+                <span class="badge">JavaScript</span>
+                <p style="margin-top: 15px; color: #666;">
+                    Dashboard interativo com gráficos dinâmicos
+                    e exportação automática
+                </p>
+                <p style="margin-top: 10px; color: #888;">
+                    👥 50+ usuários | 📊 Atualização real-time
+                </p>
+                <div class="buttons">
+                    <a href="https://github.com/seuusuario/dashboard" 
+                       class="btn btn-code">💻 Código</a>
+                    <a href="https://docs.google.com/spreadsheets/d/SEU-ID" 
+                       class="btn btn-demo">📊 Demo</a>
+                </div>
+            </div>
+            
+            <!-- Projeto 3 -->
+            <div class="project-card">
+                <h2>📧 Automação Email</h2>
+                <span class="badge">Apps Script</span>
+                <span class="badge">Gmail API</span>
+                <p style="margin-top: 15px; color: #666;">
+                    Sistema de disparo personalizado 
+                    para 1000+ clientes
+                </p>
+                <p style="margin-top: 10px; color: #888;">
+                    📬 98% entregabilidade | 🕐 Economia 20h/semana
+                </p>
+                <div class="buttons">
+                    <a href="https://github.com/seuusuario/email-auto" 
+                       class="btn btn-code">💻 Código</a>
+                    <a href="#" 
+                       class="btn btn-demo">📹 Vídeo</a>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>🔗 <a href="https://github.com/seuusuario">GitHub</a> | 
+               💼 <a href="https://linkedin.com/in/seuusuario">LinkedIn</a></p>
+            <p style="margin-top: 10px;">Desenvolvido com ❤️ e Google Apps Script</p>
+        </footer>
+    </div>
+</body>
+</html>
