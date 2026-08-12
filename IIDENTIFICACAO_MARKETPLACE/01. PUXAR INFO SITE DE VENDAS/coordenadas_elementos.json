@@ -1,0 +1,194 @@
+[
+  {
+    "texto": "(button)",
+    "tag": "button",
+    "x": 32,
+    "y": 32,
+    "width": 32,
+    "height": 32
+  },
+  {
+    "texto": "(button)",
+    "tag": "button",
+    "x": 276,
+    "y": 32,
+    "width": 16,
+    "height": 16
+  },
+  {
+    "texto": "Dados da comunidade\nnovo",
+    "tag": "div",
+    "x": 150,
+    "y": 118,
+    "width": 280,
+    "height": 40
+  },
+  {
+    "texto": "Configurações da comunidade\nnovo",
+    "tag": "div",
+    "x": 150,
+    "y": 160,
+    "width": 280,
+    "height": 40
+  },
+  {
+    "texto": "Apps do SuperApp\nnovo",
+    "tag": "div",
+    "x": 150,
+    "y": 202,
+    "width": 280,
+    "height": 40
+  },
+  {
+    "texto": "SuperApp Whitelabel",
+    "tag": "div",
+    "x": 150,
+    "y": 244,
+    "width": 280,
+    "height": 40
+  },
+  {
+    "texto": "Início",
+    "tag": "a",
+    "x": 150,
+    "y": 326,
+    "width": 300,
+    "height": 40
+  },
+  {
+    "texto": "Comunicados",
+    "tag": "a",
+    "x": 150,
+    "y": 366,
+    "width": 300,
+    "height": 40
+  },
+  {
+    "texto": "Agenda",
+    "tag": "a",
+    "x": 150,
+    "y": 406,
+    "width": 300,
+    "height": 40
+  },
+  {
+    "texto": "Atendimentos",
+    "tag": "a",
+    "x": 150,
+    "y": 446,
+    "width": 300,
+    "height": 40
+  },
+  {
+    "texto": "Relatório unificado",
+    "tag": "a",
+    "x": 150,
+    "y": 486,
+    "width": 300,
+    "height": 40
+  },
+  {
+    "texto": "E-Commerce",
+    "tag": "a",
+    "x": 150,
+    "y": 526,
+    "width": 300,
+    "height": 40
+  },
+  {
+    "texto": "Ajuda e novidades",
+    "tag": "a",
+    "x": 150,
+    "y": 527,
+    "width": 300,
+    "height": 40
+  },
+  {
+    "texto": "(button)",
+    "tag": "button",
+    "x": 536,
+    "y": 565,
+    "width": 0,
+    "height": 28
+  },
+  {
+    "texto": "Dashboard de Pagamentos",
+    "tag": "a",
+    "x": 150,
+    "y": 566,
+    "width": 300,
+    "height": 40
+  },
+  {
+    "texto": "Sugerir melhoria",
+    "tag": "a",
+    "x": 150,
+    "y": 567,
+    "width": 300,
+    "height": 40
+  },
+  {
+    "texto": "ProRaiz",
+    "tag": "a",
+    "x": 150,
+    "y": 606,
+    "width": 300,
+    "height": 40
+  },
+  {
+    "texto": "Minha conta",
+    "tag": "a",
+    "x": 150,
+    "y": 607,
+    "width": 300,
+    "height": 40
+  },
+  {
+    "texto": "Relatório Gerencial Redes",
+    "tag": "a",
+    "x": 150,
+    "y": 646,
+    "width": 300,
+    "height": 40
+  },
+  {
+    "texto": "Pesquisa",
+    "tag": "a",
+    "x": 150,
+    "y": 686,
+    "width": 300,
+    "height": 40
+  },
+  {
+    "texto": "Árvore",
+    "tag": "a",
+    "x": 150,
+    "y": 726,
+    "width": 300,
+    "height": 40
+  },
+  {
+    "texto": "Portal Do Aluno",
+    "tag": "a",
+    "x": 150,
+    "y": 766,
+    "width": 300,
+    "height": 40
+  },
+  {
+    "texto": "Caderno Mágico",
+    "tag": "a",
+    "x": 150,
+    "y": 806,
+    "width": 300,
+    "height": 40
+  },
+  {
+    "texto": "Gestão de comunicados",
+    "tag": "a",
+    "x": 150,
+    "y": 846,
+    "width": 300,
+    "height": 40
+  }
+]
