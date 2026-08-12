@@ -89,7 +89,7 @@
  * 
  * 3.3 normalizarData(valor)
  * Remove todos os caracteres não numéricos da data, gerando uma string
- * pura de dígitos (ex.: "15031990") para comparação exata.
+ * pura de dígitos (ex.: "1234567") para comparação exata.
  * 
  * =============================================================================
  * 4. DETECÇÃO INTELIGENTE DE TIPOS DE DADOS
@@ -133,7 +133,7 @@
  * Parcial), a versão F16 introduz uma nova métrica focada em sobrenomes.
  * 
  * 5.1 ÍNDICE DE JACCARD (PALAVRAS COMUNS)
- * Exemplo: "davi reis" vs "alicia reis" → 1 palavra comum de 2 → score 0.5
+ * Exemplo: "davi XXX" vs "alicia DDDD" → 1 palavra comum de 2 → score 0.5
  * 
  * 5.2 COMPARAÇÃO DE BIGRAMAS (SORENSEN-DICE)
  * Eficaz para capturar pequenos erros de digitação.
@@ -317,25 +317,25 @@
  * =============================================================================
  * 
  * EXEMPLO 1: MATCH PERFEITO COM CPF E DATA
- * F3: CPF "123.456.789-00", nome "Davi Reis Pantoja", data "15/03/1990"
- * Banco: mesmo CPF e nome, data "15031990".
+ * F3: CPF "XXXXXXX", nome "Davi Pantoja", data "DD/DD/DDDD"
+ * Banco: mesmo CPF e nome, data "XXXXX".
  * Resultado: Tier 1 (CPF + nome), com bônus de data incluso no score.
  * 
  * EXEMPLO 2: IRMÃO DETECTADO POR SOBRENOME E CPF DO RESPONSÁVEL
- * F3: CPF do responsável "987.654.321-00", nome "Alícia Reis Pantoja".
- * Banco: CPF responsável igual, nome do aluno "Davi Reis Pantoja".
+ * F3: CPF do responsável "XXXXXXX", nome "Alícia Pantoja".
+ * Banco: CPF responsável igual, nome do aluno "Davi Pantoja".
  * Penalização do primeiro nome reduz score. Similaridade de sobrenome = 1.0.
  * Classificação: Tier 2 (CPF_IRMAO_SOBRENOME).
  * 
  * EXEMPLO 3: MATCH POR DATA DE NASCIMENTO SEM CPF
- * F3: sem CPF, nome "Davi", data "15/03/1990".
- * Banco: nome "Davi Reis Pantoja", data igual.
+ * F3: sem CPF, nome "Davi", data "DD/DD/DDDD".
+ * Banco: nome "Davi Pantoja", data igual.
  * Score do nome pode não atingir 0.75, mas com data bateu, se o score for
  * suficiente poderá entrar no Tier 3B ou 4B.
  * 
  * EXEMPLO 4: FALLBACK
  * Nenhum critério atinge os thresholds. Valor da coluna G é exibido em Q,
- * e "---" nas demais.
+ * e "AAAAAA" nas demais.
  * 
  * =============================================================================
  * FIM DA DOCUMENTAÇÃO - Versão F16
