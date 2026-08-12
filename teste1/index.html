@@ -2,44 +2,46 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio - Automação Google Workspace</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Meus Projetos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .project-link {
+            display: block;
+            background: white;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #333;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .project-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        h2 { color: #0366d6; }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>🚀 Portfólio de Automações</h1>
-        <p>Transformando processos manuais em soluções inteligentes</p>
-    </header>
-
-    <main>
-        <!-- Card do Projeto 1 -->
-        <article class="project-card">
-            <h2>🏛️ Sistema Fiscal Automatizado</h2>
-            <div class="metrics">
-                <span>📊 95% menos erros</span>
-                <span>⚡ 3h → 15min</span>
-            </div>
-            <p>Automação completa de cálculos tributários com validação em tempo real</p>
-            <div class="links">
-                <a href="https://github.com/seuusuario/sistema-fiscal" class="btn">💻 Ver Código</a>
-                <a href="https://docs.google.com/spreadsheets/d/SEU-ID" class="btn">📊 Ver Demo</a>
-            </div>
-        </article>
-
-        <!-- Card do Projeto 2 -->
-        <article class="project-card">
-            <h2>📈 Dashboard de Vendas</h2>
-            <div class="metrics">
-                <span>📊 Atualização em tempo real</span>
-                <span>👥 50+ usuários</span>
-            </div>
-            <p>Dashboard interativo com gráficos dinâmicos e exportação automática</p>
-            <div class="links">
-                <a href="https://github.com/seuusuario/dashboard-vendas" class="btn">💻 Ver Código</a>
-                <a href="https://docs.google.com/spreadsheets/d/SEU-ID" class="btn">📊 Ver Demo</a>
-            </div>
-        </article>
-    </main>
+    <h1>🚀 Meu Portfólio de Automações</h1>
+    
+    <a href="./GCP-GAS/teste1/" class="project-link">
+        <h2>📊 Projeto Teste 1</h2>
+        <p>Google Cloud Platform + Google Apps Script</p>
+        <small>Clique para acessar →</small>
+    </a>
+    
+    <a href="./GCP-GAS/teste2/" class="project-link">
+        <h2>📈 Projeto Teste 2</h2>
+        <p>Dashboard automatizado</p>
+        <small>Clique para acessar →</small>
+    </a>
 </body>
 </html>
