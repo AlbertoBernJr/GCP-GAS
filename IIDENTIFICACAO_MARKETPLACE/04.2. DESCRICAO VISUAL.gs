@@ -301,8 +301,8 @@
  *  
  *     Para o item do banco "Davi Pantoja":
  *        CPF do resp (resT) = XXXX → BATE!
- *        Nome aluno: "davi reis pantoja"
- *        Nome busca: "alicia pantoja"
+ *        Nome aluno: "davi xxxx pantoja"
+ *        Nome busca: "alicia xxxx pantoja"
  *        Score similaridade:
  *           palavras comuns: XX, pantoja → 0.67
  *           penalização primeiro nome ("alicia" vs "davi") → 0.67 * 0.3 = 0.20
