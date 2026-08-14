@@ -5,26 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IIDENTIFICACAO MARKETPLACE – Portfólio</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background: #0f172a;
             color: #e2e8f0;
             display: flex;
             justify-content: center;
             padding: 40px 20px;
         }
-        .container { max-width: 900px; width: 100%; }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
         h1 {
             font-size: 2.5rem;
             color: #38bdf8;
             margin-bottom: 10px;
         }
+
         .subtitle {
             font-size: 1.2rem;
             color: #94a3b8;
             margin-bottom: 30px;
         }
+
         .video-wrapper {
             position: relative;
             padding-bottom: 56.25%;
@@ -32,40 +44,57 @@
             margin-bottom: 30px;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
         }
+
         .video-wrapper iframe {
             position: absolute;
-            top: 0; left: 0;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
         }
+
         .description {
             background: #1e293b;
             border-radius: 12px;
             padding: 25px;
             margin-bottom: 30px;
         }
-        .description h2 { color: #38bdf8; margin-bottom: 15px; }
-        .description p { line-height: 1.6; margin-bottom: 15px; }
+
+        .description h2 {
+            color: #38bdf8;
+            margin-bottom: 15px;
+        }
+
+        .description p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #cbd5e1;
+        }
+
         .tech-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             margin-top: 15px;
         }
+
         .tag {
             background: #334155;
             padding: 6px 16px;
             border-radius: 20px;
             font-size: 0.9rem;
+            color: #f1f5f9;
         }
+
         .links {
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
             margin-top: 20px;
         }
+
         .btn {
             display: inline-block;
             padding: 12px 24px;
@@ -74,37 +103,45 @@
             font-weight: 600;
             transition: transform 0.2s, box-shadow 0.2s;
         }
+
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
+
         .btn-code {
             background: #2563eb;
             color: white;
         }
+
         .btn-source {
             background: #334155;
             color: #e2e8f0;
             border: 1px solid #475569;
         }
+
         footer {
             text-align: center;
             color: #64748b;
             margin-top: 40px;
+        }
+
+        footer a {
+            color: #38bdf8;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>🔍 IIDENTIFICACAO MARKETPLACE</h1>
-        <p class="subtitle">Automação inteligente para identificação de produtos em marketplaces</p>
+        <p class="subtitle">Automação inteligente para identificação de produtos vendidos em marketplaces</p>
 
         <!-- 🎥 VÍDEO DO YOUTUBE -->
         <div class="video-wrapper">
-            <!-- Troque o src pelo link do seu vídeo -->
             <iframe 
-                src="https://www.youtube.com/embed/SEU_VIDEO_ID" 
-                title="Demonstração do projeto"
+                src="https://www.youtube.com/embed/S3tMaUZO5dI" 
+                title="Demonstração do projeto IIDENTIFICACAO MARKETPLACE"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
@@ -115,25 +152,28 @@
         <div class="description">
             <h2>📌 Sobre o projeto</h2>
             <p>
-                Sistema híbrido (Python + JavaScript) que automatiza a identificação 
-                e classificação de produtos em marketplaces. Combina web scraping, 
-                APIs do Google Sheets e interface web para dashboards em tempo real.
+                Sistema híbrido (Python + JavaScript) que automatiza a identificação e classificação de produtos em marketplaces. 
+                Combina web scraping, APIs do Google Sheets e interface web para dashboards em tempo real.
             </p>
             <p>
                 <strong>Funcionalidades principais:</strong><br>
-                ✅ Coleta automática de dados de produtos<br>
+                ✅ Coleta automática de dados das vendas<br>
                 ✅ Integração com Google Sheets (leitura e escrita)<br>
                 ✅ Classificação por similaridade textual<br>
-                ✅ Notificações via e‑mail e Telegram<br>
-                ✅ Painel de controle em JavaScript puro
+                ✅ Adição do relatório de vendas na planilha google<br>
+                ✅ JavaScript realiza toda a lógica de comparação e identificação dos compradores
             </p>
+
+            <!-- TAGS DE TECNOLOGIAS (personalize conforme necessário) -->
             <div class="tech-tags">
-                <span class="tag">🐍 Python</span>
-                <span class="tag">📜 JavaScript</span>
-                <span class="tag">📊 Google Sheets API</span>
-                <span class="tag">🌐 BeautifulSoup</span>
-                <span class="tag">⚡ Apps Script</span>
+                <span class="tag">ython</span>
+                <span class="tag">Selenium</span>
+                <span class="tag">Google Sheets API</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">Microsoft Excel</span>
             </div>
+
+            <!-- LINKS (substitua pelos seus links reais) -->
             <div class="links">
                 <a href="https://github.com/seuusuario/seu-repositorio/tree/main/IIDENTIFICACAO_MARKETPLACE" 
                    class="btn btn-code" target="_blank">
@@ -151,9 +191,11 @@
         </div>
 
         <footer>
-            <p>Projeto desenvolvido por <strong>Seu Nome</strong> • 
-            <a href="https://github.com/seuusuario" style="color:#38bdf8;">GitHub</a> • 
-            <a href="https://linkedin.com/in/seuusuario" style="color:#38bdf8;">LinkedIn</a></p>
+            <p>
+                Projeto desenvolvido por <strong>Alberto Bernardo</strong> • 
+                <a href="https://github.com/AlbertoBernJr" target="_blank">GitHub</a> • 
+                <a href="https://linkedin.com/in/seuusuario" target="_blank">LinkedIn</a>
+            </p>
         </footer>
     </div>
 </body>
