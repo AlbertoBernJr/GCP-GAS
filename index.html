@@ -2,11 +2,270 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=./IIDENTIFICACAO_MARKETPLACE/">
-    <title>Redirecionando…</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio de Projetos</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --sidebar-bg: #1e293b;
+            --accent: #38bdf8;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --card-bg: #1e293b;
+            --hover: #334155;
+            --border: #2d3748;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* ===== SIDEBAR ===== */
+        .sidebar {
+            width: 280px;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+
+        .sidebar h2 {
+            color: var(--accent);
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .project-nav {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .project-nav li {
+            padding: 12px 15px;
+            background: var(--card-bg);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            border: 1px solid transparent;
+        }
+
+        .project-nav li:hover {
+            background: var(--hover);
+            transform: translateX(4px);
+        }
+
+        .project-nav li.active {
+            background: var(--accent);
+            color: #0f172a;
+            font-weight: 600;
+            border-color: var(--accent);
+        }
+
+        .project-nav li .project-name {
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .project-nav li .project-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: block;
+            transition: color 0.2s;
+        }
+
+        .project-nav li.active .project-desc {
+            color: #0f172a;
+        }
+
+        /* ===== CONTEÚDO PRINCIPAL ===== */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            gap: 15px;
+            overflow: hidden;
+        }
+
+        .project-title-bar {
+            background: var(--card-bg);
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .project-title-bar h1 {
+            font-size: 1.6rem;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+
+        .project-title-bar p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .preview-frame {
+            flex: 1;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+            min-height: 0;
+        }
+
+        .preview-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        /* ===== RESPONSIVO ===== */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                flex-direction: row;
+                overflow-x: auto;
+                padding: 10px;
+                gap: 10px;
+            }
+            .project-nav {
+                flex-direction: row;
+            }
+            .project-nav li {
+                white-space: nowrap;
+            }
+            .main-content {
+                padding: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <p>Redirecionando para o projeto…</p>
-    <a href="./IIDENTIFICACAO_MARKETPLACE/">Clique aqui se não for redirecionado automaticamente.</a>
+    <!-- SIDEBAR COM LISTA DE PROJETOS -->
+    <aside class="sidebar">
+        <h2>🚀 Meus Projetos</h2>
+        <ul class="project-nav" id="projectNav">
+            <!-- Os itens serão gerados via JavaScript -->
+        </ul>
+    </aside>
+
+    <!-- ÁREA PRINCIPAL COM PRÉVIA -->
+    <main class="main-content">
+        <div class="project-title-bar" id="projectTitleBar">
+            <h1 id="projectTitle">Selecione um projeto</h1>
+            <p id="projectDescription">Clique em um item da lista para ver a prévia.</p>
+        </div>
+        <div class="preview-frame">
+            <iframe id="previewIframe" title="Prévia do projeto" src="about:blank"></iframe>
+        </div>
+    </main>
+
+    <script>
+        // =============================================
+        // 🗂️ ADICIONE SEUS PROJETOS AQUI
+        // =============================================
+        const projects = [
+            {
+                id: 'marketplace',
+                name: 'IIDENTIFICACAO MARKETPLACE',
+                description: 'Automação híbrida (Python + JavaScript) para identificação de produtos em marketplaces.',
+                folder: 'IIDENTIFICACAO_MARKETPLACE'  // pasta que contém o index.html do projeto
+            },
+            // Exemplo de outro projeto:
+            // {
+            //     id: 'dashboard',
+            //     name: 'Dashboard de Vendas',
+            //     description: 'Dashboard interativo com Google Sheets e Apps Script.',
+            //     folder: 'dashboard-vendas'
+            // },
+            // {
+            //     id: 'email-auto',
+            //     name: 'Automação de E-mails',
+            //     description: 'Sistema de disparo personalizado via Gmail API.',
+            //     folder: 'email-automation'
+            // }
+        ];
+
+        // Elementos da página
+        const nav = document.getElementById('projectNav');
+        const iframe = document.getElementById('previewIframe');
+        const title = document.getElementById('projectTitle');
+        const desc = document.getElementById('projectDescription');
+
+        // Função para carregar o projeto selecionado
+        function loadProject(project) {
+            // Atualiza título e descrição
+            title.textContent = project.name;
+            desc.textContent = project.description;
+
+            // Carrega a prévia do projeto (index.html dentro da pasta)
+            iframe.src = './' + project.folder + '/';
+        }
+
+        // Função para gerar a lista de projetos na sidebar
+        function renderProjects() {
+            projects.forEach(project => {
+                const li = document.createElement('li');
+                li.dataset.id = project.id;
+
+                const spanName = document.createElement('span');
+                spanName.className = 'project-name';
+                spanName.textContent = project.name;
+
+                const spanDesc = document.createElement('span');
+                spanDesc.className = 'project-desc';
+                spanDesc.textContent = project.description;
+
+                li.appendChild(spanName);
+                li.appendChild(spanDesc);
+
+                li.addEventListener('click', () => {
+                    // Remove classe active de todos os itens
+                    document.querySelectorAll('.project-nav li').forEach(el => el.classList.remove('active'));
+                    // Adiciona active ao item clicado
+                    li.classList.add('active');
+                    // Carrega o projeto
+                    loadProject(project);
+                });
+
+                nav.appendChild(li);
+            });
+
+            // Se houver projetos, carrega o primeiro automaticamente
+            if (projects.length > 0) {
+                const firstItem = nav.querySelector('li');
+                firstItem.classList.add('active');
+                loadProject(projects[0]);
+            }
+        }
+
+        // Inicializa a interface
+        renderProjects();
+    </script>
 </body>
 </html>
