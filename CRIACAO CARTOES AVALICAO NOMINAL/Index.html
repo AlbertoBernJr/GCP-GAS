@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRIAÇÃO CARTÕES AVALIAÇÃO NOMINAL – Portfólio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .description {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .description h2 {
+            color: #38bdf8;
+            margin-bottom: 15px;
+        }
+
+        .description p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #cbd5e1;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: #334155;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #f1f5f9;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-back {
+            background: #334155;
+            color: #e2e8f0;
+            border: 1px solid #475569;
+        }
+
+        .btn-code {
+            background: #2563eb;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            color: #64748b;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📇 CRIAÇÃO CARTÕES AVALIAÇÃO NOMINAL</h1>
+        <p class="subtitle">Sistema automatizado para geração de cartões de avaliação nominal</p>
+
+        <!-- 🎥 VÍDEO DO YOUTUBE -->
+        <div class="video-wrapper">
+            <iframe 
+                src="https://www.youtube.com/embed/8IlT4zMjFiw" 
+                title="Demonstração do projeto CRIAÇÃO CARTÕES AVALIAÇÃO NOMINAL"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- 📋 DESCRIÇÃO DO PROJETO -->
+        <div class="description">
+            <h2>📌 Sobre o projeto</h2>
+            <p>
+                Ferramenta que automatiza a criação de cartões de avaliação nominal, 
+                integrando dados de planilhas Google e gerando documentos prontos para 
+                impressão ou envio digital. Reduz drasticamente o tempo de produção 
+                manual e elimina erros de digitação.
+            </p>
+            <p>
+                <strong>Funcionalidades principais:</strong><br>
+                ✅ Leitura automática de dados do Google Sheets<br>
+                ✅ Geração em massa de cartões personalizados<br>
+                ✅ Formatação profissional com layout definido<br>
+                ✅ Exportação para PDF ou impressão direta<br>
+                ✅ Interface simples para configuração
+            </p>
+
+            <!-- TAGS DE TECNOLOGIAS (personalize conforme necessário) -->
+            <div class="tech-tags">
+                <span class="tag">📊 Google Sheets</span>
+                <span class="tag">📜 JavaScript</span>
+                <span class="tag">⚡ Apps Script</span>
+                <span class="tag">📄 PDF</span>
+                <span class="tag">🎨 HTML/CSS</span>
+            </div>
+
+            <!-- BOTÕES: VOLTAR E CÓDIGO FONTE (ajuste o link do código) -->
+            <div class="buttons">
+                <a href="../index.html" class="btn btn-back">⬅ Voltar ao portfólio</a>
+                <a href="https://github.com/seuusuario/seu-repositorio/tree/main/CRIACAO%20CARTOES%20AVALIACAO%20NOMINAL" 
+                   class="btn btn-code" target="_blank">
+                   📁 Ver código fonte
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            <p>
+                Projeto desenvolvido por <strong>Seu Nome</strong> • 
+                <a href="https://github.com/seuusuario" target="_blank">GitHub</a> • 
+                <a href="https://linkedin.com/in/seuusuario" target="_blank">LinkedIn</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
