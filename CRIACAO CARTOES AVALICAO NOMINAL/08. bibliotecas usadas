@@ -1,0 +1,14 @@
+Bibliotecas usadas no projeto:
+Bibliotecas Externas (precisam ser instaladas via pip):
+1. Pillow (PIL): Manipulação e criação de imagens (Image, ImageDraw, ImageFont).
+2. pandas: Análise, manipulação e tratamento de dados.
+3. numpy: Computação numérica e operações matemáticas com matrizes/arrays.
+
+Bibliotecas Nativas (Standard Library do Python — já vêm pré-instaladas):
+1. os: Interação com o sistema operacional e caminhos de arquivos.
+2. sys: Acesso a variáveis e configurações do interpretador Python.
+3. textwrap: Formatação e quebra automática de texto em blocos.
+4. shutil: Copiar, mover e deletar arquivos e diretórios de forma avançada.
+5. atetime: Manipulação de datas e horários.
+6. threading: Criação e controle de múltiplas threads (tarefas em segundo plano).
+7. tkinter: Construção de interfaces gráficas (GUI), janelas e alertas (ttk, messagebox, filedialog).
