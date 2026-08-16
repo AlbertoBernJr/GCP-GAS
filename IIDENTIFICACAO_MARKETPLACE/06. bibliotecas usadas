@@ -1,0 +1,13 @@
+Bibliotecas Externas (precisam ser instaladas via pip)
+1. selenium: Automação e navegação web (Web Scraping).
+2. gspread: Integração e manipulação de dados no Google Planilhas.
+3. google-auth: Autenticação via conta de serviço nos serviços Google (google.oauth2).
+4. pyinstaller: Empacotamento de códigos Python em arquivos executáveis (.exe).
+
+Bibliotecas Nativas (Standard Library do Python — já vêm pré-instaladas)
+1. os: Interação com diretórios, arquivos e variáveis de ambiente.
+2. sys: Acesso a variáveis e configurações do interpretador.
+3. unicodedata: Tratamento e normalização de caracteres Unicode (útil para remover acentos).
+4. glob: Busca de arquivos e caminhos usando padrões e caracteres coringa (ex: *.csv).
+5. time: Controle de tempo e pausas na execução do código (time.sleep).
+6. datetime: Manipulação de datas e horários.
