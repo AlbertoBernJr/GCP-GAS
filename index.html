@@ -232,7 +232,7 @@
             desc.textContent = project.description;
 
             // Carrega a prévia do projeto (index.html dentro da pasta)
-            iframe.src = './' + project.folder + '/';
+            iframe.src = './' + encodeURIComponent(project.folder) + '/';
         }
 
         // Função para gerar a lista de projetos na sidebar
