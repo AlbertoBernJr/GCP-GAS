@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LANÇAMENTO DE FALTAS – Portfólio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .description {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .description h2 {
+            color: #38bdf8;
+            margin-bottom: 15px;
+        }
+
+        .description p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #cbd5e1;
+        }
+
+        .description ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: #334155;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #f1f5f9;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-back {
+            background: #334155;
+            color: #e2e8f0;
+            border: 1px solid #475569;
+        }
+
+        .btn-code {
+            background: #2563eb;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            color: #64748b;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LANÇAMENTO DE FALTAS</h1>
+        <p class="subtitle">Sistema que facilita o registro das faltas cometidas pelos alunos no ambiente escolar</p>
+
+        <!-- VÍDEO DO YOUTUBE (substitua o src pelo link de embed) -->
+        <div class="video-wrapper">
+            <iframe 
+                src="COLE_AQUI_O_LINK_EMBED_DO_YOUTUBE" 
+                title="Demonstração do projeto LANÇAMENTO DE FALTAS"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- DESCRIÇÃO DO PROJETO -->
+        <div class="description">
+            <h2>Sobre o projeto</h2>
+            <p>
+                Antes, o registro de faltas era feito manualmente em uma planilha: era preciso localizar o aluno e o dia, digitar um número na célula correspondente e repetir o processo diariamente. Isso tomava tempo e estava sujeito a erros.
+            </p>
+            <p>
+                Esta ferramenta substitui esse fluxo por uma interface web conectada ao Google Sheets. O usuário seleciona o aluno que faltou e a falta é registrada automaticamente, com data, hora e a assinatura do responsável. Não é mais necessário procurar o dia nem digitar manualmente na célula.
+            </p>
+            <p><strong>Funcionalidades principais:</strong></p>
+            <ul>
+                <li>Interface que facilita a marcação de faltas dos alunos</li>
+                <li>Gravação automática da assinatura do usuário responsável, dia e hora</li>
+                <li>Utilização do Google Sheets como banco de dados</li>
+                <li>Redução do tempo de registro de 1 hora para 25 minutos</li>
+            </ul>
+
+            <!-- TAGS DE TECNOLOGIAS -->
+            <div class="tech-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">Web Apps Script</span>
+                <span class="tag">Google Sheets/Planilhas</span>
+                <span class="tag">Google Workspace</span>
+            </div>
+
+            <!-- BOTÕES (substitua o href pelo link real do repositório) -->
+            <div class="buttons">
+                <a href="COLE_AQUI_O_LINK_DO_REPOSITORIO" 
+                   class="btn btn-code" target="_blank">
+                   Ver código
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            <p>
+                Projeto desenvolvido por <strong>Alberto Bernardo</strong> • 
+                <a href="https://github.com/AlbertoBernJr" target="_blank">GitHub</a> • 
+                <a href="https://linkedin.com/in/AlbertoBernJr" target="_blank">LinkedIn</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
