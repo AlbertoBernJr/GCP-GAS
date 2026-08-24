@@ -1,402 +1,326 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-  <base target="_top">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-      margin: 0;
-      padding: 16px;
-      background: #f5f5f5;
-    }
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    h1 {
-      font-size: 1.5rem;
-      margin-top: 0;
-      color: #333;
-    }
-    .creditos {
-      text-align: left;
-      font-size: 0.6rem;
-      color: #888;
-      margin-top: -10px;
-      margin-bottom: 15px;
-      font-style: italic;
-    }
-    .filtros {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 15px;
-    }
-    @media (max-width: 480px) {
-      .filtros {
-        grid-template-columns: 1fr;
-      }
-    }
-    .campo-filtro {
-      position: relative;
-    }
-    label {
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #555;
-      display: block;
-      margin-bottom: 4px;
-    }
-    input {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-      box-sizing: border-box;
-    }
-    .dropdown-opcoes {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      max-height: 200px;
-      overflow-y: auto;
-      background: white;
-      border: 1px solid #ccc;
-      border-radius: 0 0 8px 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      z-index: 10;
-      display: none;
-    }
-    .dropdown-opcoes.ativo {
-      display: block;
-    }
-    .opcao {
-      padding: 10px;
-      cursor: pointer;
-      font-size: 0.95rem;
-      border-bottom: 1px solid #eee;
-    }
-    .opcao:hover {
-      background: #f0f0f0;
-    }
-    .botao-limpar {
-      width: 100%;
-      padding: 10px;
-      background: #f5f5f5;
-      color: #555;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      cursor: pointer;
-      margin-bottom: 10px;
-    }
-    .botao-limpar:hover {
-      background: #e0e0e0;
-    }
-    .lista {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .aluno-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 0;
-      border-bottom: 1px solid #eee;
-    }
-    .aluno-info {
-      flex: 1;
-      font-size: 0.95rem;
-    }
-    .bolinha {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      border: 2px solid #bbb;
-      background: white;
-      cursor: pointer;
-      transition: all 0.2s;
-      margin-left: 12px;
-      flex-shrink: 0;
-    }
-    .bolinha.selecionada {
-      background: #2e7d32;
-      border-color: #2e7d32;
-      box-shadow: 0 0 0 2px rgba(46,125,50,0.2);
-    }
-    button {
-      width: 100%;
-      padding: 14px;
-      background: #1976d2;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    button:active {
-      background: #0d47a1;
-    }
-    .mensagem {
-      margin-top: 12px;
-      padding: 10px;
-      border-radius: 8px;
-      text-align: center;
-      display: none;
-    }
-    .mensagem.sucesso {
-      background: #e8f5e9;
-      color: #1b5e20;
-      display: block;
-    }
-    .mensagem.erro {
-      background: #ffebee;
-      color: #b71c1c;
-      display: block;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB APP SCRIPT - LANCAMENTO FALTA DOS ALUNOS – Portfólio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        /* ===== CARROSSEL ===== */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            background: #1e293b;
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            background: #0f172a;
+            display: block;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(15, 23, 42, 0.7);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(56, 189, 248, 0.8);
+        }
+
+        .carousel-btn.prev {
+            left: 15px;
+        }
+
+        .carousel-btn.next {
+            right: 15px;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .carousel-indicator.active {
+            background: #38bdf8;
+        }
+
+        .description {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .description h2 {
+            color: #38bdf8;
+            margin-bottom: 15px;
+        }
+
+        .description p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #cbd5e1;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: #334155;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #f1f5f9;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-back {
+            background: #334155;
+            color: #e2e8f0;
+            border: 1px solid #475569;
+        }
+
+        .btn-code {
+            background: #2563eb;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            color: #64748b;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>LANÇAMENTO DE FALTAS</h1>
-    <p class="creditos">Desenvolvido por Dailson Freitas & Alberto Bernardo</p>
+    <div class="container">
+        <h1>📇 WEB APP SCRIPT - LANCAMENTO FALTA DOS ALUNOS</h1>
+        <p class="subtitle">Aplicativo web para lançamento de faltas dos alunos</p>
 
-    <div class="filtros">
-      <div class="campo-filtro">
-        <label for="filtroRA">RA</label>
-        <input type="text" id="filtroRA" placeholder="Digite ou selecione" autocomplete="off">
-        <div class="dropdown-opcoes" id="dropdownRA"></div>
-      </div>
-      <div class="campo-filtro">
-        <label for="filtroNome">Nome</label>
-        <input type="text" id="filtroNome" placeholder="Digite ou selecione" autocomplete="off">
-        <div class="dropdown-opcoes" id="dropdownNome"></div>
-      </div>
-      <div class="campo-filtro">
-        <label for="filtroTurma">Turma</label>
-        <input type="text" id="filtroTurma" placeholder="Digite ou selecione" autocomplete="off">
-        <div class="dropdown-opcoes" id="dropdownTurma"></div>
-      </div>
-      <div class="campo-filtro">
-        <label for="filtroGrade">Grade</label>
-        <input type="text" id="filtroGrade" placeholder="Digite ou selecione" autocomplete="off">
-        <div class="dropdown-opcoes" id="dropdownGrade"></div>
-      </div>
+        <!-- 🎠 CARROSSEL DE IMAGENS -->
+        <div class="carousel-container" id="carousel">
+            <div class="carousel-slides" id="carouselSlides">
+                <!-- As imagens serão inseridas via JavaScript -->
+            </div>
+            <button class="carousel-btn prev" id="btnPrev">&#10094;</button>
+            <button class="carousel-btn next" id="btnNext">&#10095;</button>
+            <div class="carousel-indicators" id="carouselIndicators"></div>
+        </div>
+
+        <!-- 📋 DESCRIÇÃO DO PROJETO -->
+        <div class="description">
+            <h2>📌 Sobre o projeto</h2>
+            <p>
+                Aplicação web desenvolvida com Google Apps Script para registrar e acompanhar
+                o lançamento de faltas dos alunos de forma rápida e integrada ao Google Sheets.
+            </p>
+            <p>
+                <strong>Funcionalidades principais:</strong><br>
+                ✅ Interface web responsiva<br>
+                ✅ Integração com planilha Google<br>
+                ✅ Registro de faltas por turma e data<br>
+                ✅ Geração de relatórios automáticos<br>
+                ✅ Controle de acesso simples
+            </p>
+
+            <div class="tech-tags">
+                <span class="tag">📊 Google Sheets</span>
+                <span class="tag">📜 JavaScript</span>
+                <span class="tag">⚡ Apps Script</span>
+                <span class="tag">🌐 HTML/CSS</span>
+            </div>
+
+            <div class="buttons">
+                <a href="../index.html" class="btn btn-back">⬅ Voltar ao portfólio</a>
+                <a href="https://github.com/AlbertoBernJr/GCP-GAS/tree/main/WEB%20APP%20SCRIPT%20-%20LANCAMENTO%20FALTA%20DOS%20ALUNOS" 
+                   class="btn btn-code" target="_blank">
+                   📁 Ver código fonte
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            <p>
+                Projeto desenvolvido por <strong>Alberto Bern Jr</strong> • 
+                <a href="https://github.com/AlbertoBernJr" target="_blank">GitHub</a> • 
+                <a href="#" target="_blank">LinkedIn</a>
+            </p>
+        </footer>
     </div>
 
-    <button class="botao-limpar" onclick="limparFiltros()">Limpar Filtros</button>
+    <script>
+        // =============================================
+        // 📸 CONFIGURAÇÃO DAS IMAGENS DO CARROSSEL
+        // =============================================
+        const images = [
+            'fotos/imagem1.png',   // ajuste conforme os nomes reais
+            'fotos/imagem2.png',
+            'fotos/imagem3.jpg'
+            // adicione mais imagens...
+        ];
 
-    <ul class="lista" id="listaAlunos"></ul>
+        // Elementos
+        const slidesContainer = document.getElementById('carouselSlides');
+        const indicatorsContainer = document.getElementById('carouselIndicators');
+        const btnPrev = document.getElementById('btnPrev');
+        const btnNext = document.getElementById('btnNext');
 
-    <button onclick="salvar()">SALVAR</button>
+        let currentIndex = 0;
 
-    <div id="mensagem" class="mensagem"></div>
-  </div>
+        // Cria os slides
+        images.forEach((src, index) => {
+            const slide = document.createElement('div');
+            slide.className = 'carousel-slide';
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = `Imagem ${index + 1} do projeto`;
+            slide.appendChild(img);
+            slidesContainer.appendChild(slide);
 
-  <script>
-    let todosAlunos = [];
-    const selecionados = new Set();
-
-    const filtroRA = document.getElementById('filtroRA');
-    const filtroNome = document.getElementById('filtroNome');
-    const filtroTurma = document.getElementById('filtroTurma');
-    const filtroGrade = document.getElementById('filtroGrade');
-
-    const dropdownRA = document.getElementById('dropdownRA');
-    const dropdownNome = document.getElementById('dropdownNome');
-    const dropdownTurma = document.getElementById('dropdownTurma');
-    const dropdownGrade = document.getElementById('dropdownGrade');
-
-    google.script.run.withSuccessHandler(function(alunos) {
-      todosAlunos = alunos;
-      atualizarDropdowns();
-      filtrarAlunos();
-    }).listarAlunos();
-
-    function atualizarDropdowns() {
-      const raVal = filtroRA.value.toLowerCase().trim();
-      const nomeVal = filtroNome.value.toLowerCase().trim();
-      const turmaVal = filtroTurma.value.toLowerCase().trim();
-      const gradeVal = filtroGrade.value.toLowerCase().trim();
-
-      const opcoesRA = new Set();
-      const opcoesNome = new Set();
-      const opcoesTurma = new Set();
-      const opcoesGrade = new Set();
-
-      todosAlunos.forEach(aluno => {
-        if (
-          (!nomeVal || aluno.nome.toLowerCase().includes(nomeVal)) &&
-          (!turmaVal || aluno.turma.toLowerCase().includes(turmaVal)) &&
-          (!gradeVal || aluno.grade.toLowerCase().includes(gradeVal))
-        ) {
-          opcoesRA.add(aluno.ra);
-        }
-
-        if (
-          (!raVal || aluno.ra.toLowerCase().includes(raVal)) &&
-          (!turmaVal || aluno.turma.toLowerCase().includes(turmaVal)) &&
-          (!gradeVal || aluno.grade.toLowerCase().includes(gradeVal))
-        ) {
-          opcoesNome.add(aluno.nome);
-        }
-
-        if (
-          (!raVal || aluno.ra.toLowerCase().includes(raVal)) &&
-          (!nomeVal || aluno.nome.toLowerCase().includes(nomeVal)) &&
-          (!gradeVal || aluno.grade.toLowerCase().includes(gradeVal))
-        ) {
-          opcoesTurma.add(aluno.turma);
-        }
-
-        if (
-          (!raVal || aluno.ra.toLowerCase().includes(raVal)) &&
-          (!nomeVal || aluno.nome.toLowerCase().includes(nomeVal)) &&
-          (!turmaVal || aluno.turma.toLowerCase().includes(turmaVal))
-        ) {
-          opcoesGrade.add(aluno.grade);
-        }
-      });
-
-      preencherDropdown(dropdownRA, [...opcoesRA].sort(), filtroRA);
-      preencherDropdown(dropdownNome, [...opcoesNome].sort(), filtroNome);
-      preencherDropdown(dropdownTurma, [...opcoesTurma].sort(), filtroTurma);
-      preencherDropdown(dropdownGrade, [...opcoesGrade].sort(), filtroGrade);
-    }
-
-    function preencherDropdown(dropdown, valores, input) {
-      dropdown.innerHTML = '';
-      valores.forEach(valor => {
-        const div = document.createElement('div');
-        div.className = 'opcao';
-        div.textContent = valor;
-        div.addEventListener('click', function() {
-          input.value = valor;
-          dropdown.classList.remove('ativo');
-          atualizarDropdowns();
-          filtrarAlunos();
-        });
-        dropdown.appendChild(div);
-      });
-    }
-
-    function filtrarAlunos() {
-      const ra = filtroRA.value.toLowerCase().trim();
-      const nome = filtroNome.value.toLowerCase().trim();
-      const turma = filtroTurma.value.toLowerCase().trim();
-      const grade = filtroGrade.value.toLowerCase().trim();
-
-      const filtrados = todosAlunos.filter(aluno => {
-        return (
-          (!ra || aluno.ra.toLowerCase().includes(ra)) &&
-          (!nome || aluno.nome.toLowerCase().includes(nome)) &&
-          (!turma || aluno.turma.toLowerCase().includes(turma)) &&
-          (!grade || aluno.grade.toLowerCase().includes(grade))
-        );
-      });
-
-      renderizarLista(filtrados);
-    }
-
-    function renderizarLista(alunos) {
-      const lista = document.getElementById('listaAlunos');
-      lista.innerHTML = '';
-
-      alunos.forEach(aluno => {
-        const li = document.createElement('li');
-        li.className = 'aluno-item';
-
-        const info = document.createElement('div');
-        info.className = 'aluno-info';
-        info.innerHTML = `<strong>${aluno.ra}</strong> — ${aluno.nome}<br><small>${aluno.turma} | ${aluno.grade}</small>`;
-
-        const bolinha = document.createElement('button');
-        bolinha.className = 'bolinha';
-        bolinha.dataset.ra = aluno.ra;
-        bolinha.addEventListener('click', function() {
-          this.classList.toggle('selecionada');
-          if (this.classList.contains('selecionada')) {
-            selecionados.add(aluno.ra);
-          } else {
-            selecionados.delete(aluno.ra);
-          }
+            // Indicador
+            const indicator = document.createElement('button');
+            indicator.className = 'carousel-indicator' + (index === 0 ? ' active' : '');
+            indicator.setAttribute('data-index', index);
+            indicator.addEventListener('click', () => goToSlide(index));
+            indicatorsContainer.appendChild(indicator);
         });
 
-        li.appendChild(info);
-        li.appendChild(bolinha);
-        lista.appendChild(li);
-      });
-    }
+        function updateCarousel() {
+            slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+            document.querySelectorAll('.carousel-indicator').forEach((ind, i) => {
+                ind.classList.toggle('active', i === currentIndex);
+            });
+        }
 
-    function configurarEventoDropdown(input, dropdown) {
-      input.addEventListener('focus', function() {
-        dropdown.classList.add('ativo');
-        atualizarDropdowns();
-      });
-      input.addEventListener('input', function() {
-        dropdown.classList.add('ativo');
-        atualizarDropdowns();
-        filtrarAlunos();
-      });
-      input.addEventListener('blur', function() {
-        setTimeout(() => {
-          dropdown.classList.remove('ativo');
-        }, 200);
-      });
-    }
+        function goToSlide(index) {
+            currentIndex = index;
+            if (currentIndex < 0) currentIndex = images.length - 1;
+            if (currentIndex >= images.length) currentIndex = 0;
+            updateCarousel();
+        }
 
-    configurarEventoDropdown(filtroRA, dropdownRA);
-    configurarEventoDropdown(filtroNome, dropdownNome);
-    configurarEventoDropdown(filtroTurma, dropdownTurma);
-    configurarEventoDropdown(filtroGrade, dropdownGrade);
+        function nextSlide() {
+            goToSlide(currentIndex + 1);
+        }
 
-    function limparFiltros() {
-      filtroRA.value = '';
-      filtroNome.value = '';
-      filtroTurma.value = '';
-      filtroGrade.value = '';
-      document.querySelectorAll('.dropdown-opcoes').forEach(d => d.classList.remove('ativo'));
-      atualizarDropdowns();
-      filtrarAlunos();
-    }
+        function prevSlide() {
+            goToSlide(currentIndex - 1);
+        }
 
-    function salvar() {
-      if (selecionados.size === 0) {
-        mostrarMensagem('Nenhum aluno selecionado.', 'erro');
-        return;
-      }
+        btnNext.addEventListener('click', nextSlide);
+        btnPrev.addEventListener('click', prevSlide);
 
-      const listaRA = Array.from(selecionados);
-      google.script.run
-        .withSuccessHandler(function(resultado) {
-          mostrarMensagem(
-            `Registros salvos: ${resultado.registrados}. Duplicados: ${resultado.duplicados}.`,
-            'sucesso'
-          );
-          selecionados.clear();
-          filtrarAlunos();
-        })
-        .withFailureHandler(function(erro) {
-          mostrarMensagem('Erro: ' + erro.message, 'erro');
-        })
-        .registrarFaltas(listaRA);
-    }
-
-    function mostrarMensagem(texto, tipo) {
-      const div = document.getElementById('mensagem');
-      div.textContent = texto;
-      div.className = 'mensagem ' + tipo;
-    }
-  </script>
+        updateCarousel();
+    </script>
 </body>
 </html>
