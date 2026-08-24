@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEB APP SCRIPT - LANCAMENTO FALTA DOS ALUNOS – Portfólio</title>
+    <title>WEB APP SCRIPT – LANCAMENTO FALTA DOS ALUNOS</title>
     <style>
         * {
             margin: 0;
@@ -125,6 +125,7 @@
             background: #38bdf8;
         }
 
+        /* Descrição */
         .description {
             background: #1e293b;
             border-radius: 12px;
@@ -204,13 +205,13 @@
 </head>
 <body>
     <div class="container">
-        <h1>📇 WEB APP SCRIPT - LANCAMENTO FALTA DOS ALUNOS</h1>
-        <p class="subtitle">Aplicativo web para lançamento de faltas dos alunos</p>
+        <h1>📊 WEB APP SCRIPT – LANCAMENTO FALTA DOS ALUNOS</h1>
+        <p class="subtitle">Aplicativo web para registro de faltas com integração ao Google Sheets</p>
 
         <!-- 🎠 CARROSSEL DE IMAGENS -->
         <div class="carousel-container" id="carousel">
             <div class="carousel-slides" id="carouselSlides">
-                <!-- As imagens serão inseridas via JavaScript -->
+                <!-- Slides inseridos via JavaScript -->
             </div>
             <button class="carousel-btn prev" id="btnPrev">&#10094;</button>
             <button class="carousel-btn next" id="btnNext">&#10095;</button>
@@ -221,22 +222,24 @@
         <div class="description">
             <h2>📌 Sobre o projeto</h2>
             <p>
-                Aplicação web desenvolvida com Google Apps Script para registrar e acompanhar
-                o lançamento de faltas dos alunos de forma rápida e integrada ao Google Sheets.
+                Aplicativo web desenvolvido com Google Apps Script para automatizar o lançamento de faltas de alunos, 
+                oferecendo interface amigável, filtros e gravação direta em planilha Google. Elimina a necessidade de 
+                preenchimento manual e reduz erros.
             </p>
             <p>
                 <strong>Funcionalidades principais:</strong><br>
-                ✅ Interface web responsiva<br>
-                ✅ Integração com planilha Google<br>
-                ✅ Registro de faltas por turma e data<br>
-                ✅ Geração de relatórios automáticos<br>
-                ✅ Controle de acesso simples
+                ✅ Verificação de permissões de acesso<br>
+                ✅ Interface de seleção de alunos<br>
+                ✅ Aplicação de filtros dinâmicos<br>
+                ✅ Marcação de faltas com um clique<br>
+                ✅ Atualização automática da planilha<br>
+                ✅ Contador de faltas por aluno
             </p>
 
             <div class="tech-tags">
-                <span class="tag">📊 Google Sheets</span>
                 <span class="tag">📜 JavaScript</span>
                 <span class="tag">⚡ Apps Script</span>
+                <span class="tag">📊 Google Sheets</span>
                 <span class="tag">🌐 HTML/CSS</span>
             </div>
 
@@ -263,10 +266,14 @@
         // 📸 CONFIGURAÇÃO DAS IMAGENS DO CARROSSEL
         // =============================================
         const images = [
-            'fotos/imagem1.png',   // ajuste conforme os nomes reais
-            'fotos/imagem2.png',
-            'fotos/imagem3.jpg'
-            // adicione mais imagens...
+            'fotos/01_Verificacao_permissao_google.png',
+            'fotos/02_escolha_acesso.png',
+            'fotos/03_interface_inicial_app.png',
+            'fotos/04_utilizando_filtros.png',
+            'fotos/05_selecao_alunos_faltosos.png',
+            'fotos/06_planilha_antes_da_gravacao_das_faltas.png',
+            'fotos/07_planilha_depois_da_gravacao_faltas.png',
+            'fotos/08_contador_faltas_por_aluno.png'
         ];
 
         // Elementos
@@ -277,7 +284,7 @@
 
         let currentIndex = 0;
 
-        // Cria os slides
+        // Cria os slides e indicadores
         images.forEach((src, index) => {
             const slide = document.createElement('div');
             slide.className = 'carousel-slide';
@@ -287,7 +294,6 @@
             slide.appendChild(img);
             slidesContainer.appendChild(slide);
 
-            // Indicador
             const indicator = document.createElement('button');
             indicator.className = 'carousel-indicator' + (index === 0 ? ' active' : '');
             indicator.setAttribute('data-index', index);
@@ -320,6 +326,7 @@
         btnNext.addEventListener('click', nextSlide);
         btnPrev.addEventListener('click', prevSlide);
 
+        // Inicializa
         updateCarousel();
     </script>
 </body>
