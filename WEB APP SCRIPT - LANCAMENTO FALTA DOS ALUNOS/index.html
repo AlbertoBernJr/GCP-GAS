@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LANÇAMENTO DE FALTAS – Portfólio</title>
+    <title>WEB APP SCRIPT - LANCAMENTO FALTA DOS ALUNOS – Portfólio</title>
     <style>
         * {
             margin: 0;
@@ -37,22 +37,92 @@
             margin-bottom: 30px;
         }
 
-        .video-wrapper {
+        /* ===== CARROSSEL ===== */
+        .carousel-container {
             position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            margin-bottom: 30px;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 30px;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            background: #1e293b;
         }
 
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel-slide img {
             width: 100%;
-            height: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            background: #0f172a;
+            display: block;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(15, 23, 42, 0.7);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(56, 189, 248, 0.8);
+        }
+
+        .carousel-btn.prev {
+            left: 15px;
+        }
+
+        .carousel-btn.next {
+            right: 15px;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .carousel-indicator.active {
+            background: #38bdf8;
         }
 
         .description {
@@ -71,13 +141,6 @@
             line-height: 1.6;
             margin-bottom: 15px;
             color: #cbd5e1;
-        }
-
-        .description ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-            color: #cbd5e1;
-            line-height: 1.6;
         }
 
         .tech-tags {
@@ -141,61 +204,123 @@
 </head>
 <body>
     <div class="container">
-        <h1>LANÇAMENTO DE FALTAS</h1>
-        <p class="subtitle">Sistema que facilita o registro das faltas cometidas pelos alunos no ambiente escolar</p>
+        <h1>📇 WEB APP SCRIPT - LANCAMENTO FALTA DOS ALUNOS</h1>
+        <p class="subtitle">Aplicativo web para lançamento de faltas dos alunos</p>
 
-        <!-- VÍDEO DO YOUTUBE (substitua o src pelo link de embed) -->
-        <div class="video-wrapper">
-            <iframe 
-                src="COLE_AQUI_O_LINK_EMBED_DO_YOUTUBE" 
-                title="Demonstração do projeto LANÇAMENTO DE FALTAS"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
+        <!-- 🎠 CARROSSEL DE IMAGENS -->
+        <div class="carousel-container" id="carousel">
+            <div class="carousel-slides" id="carouselSlides">
+                <!-- As imagens serão inseridas via JavaScript -->
+            </div>
+            <button class="carousel-btn prev" id="btnPrev">&#10094;</button>
+            <button class="carousel-btn next" id="btnNext">&#10095;</button>
+            <div class="carousel-indicators" id="carouselIndicators"></div>
         </div>
 
-        <!-- DESCRIÇÃO DO PROJETO -->
+        <!-- 📋 DESCRIÇÃO DO PROJETO -->
         <div class="description">
-            <h2>Sobre o projeto</h2>
+            <h2>📌 Sobre o projeto</h2>
             <p>
-                Antes, o registro de faltas era feito manualmente em uma planilha: era preciso localizar o aluno e o dia, digitar um número na célula correspondente e repetir o processo diariamente. Isso tomava tempo e estava sujeito a erros.
+                Aplicação web desenvolvida com Google Apps Script para registrar e acompanhar
+                o lançamento de faltas dos alunos de forma rápida e integrada ao Google Sheets.
             </p>
             <p>
-                Esta ferramenta substitui esse fluxo por uma interface web conectada ao Google Sheets. O usuário seleciona o aluno que faltou e a falta é registrada automaticamente, com data, hora e a assinatura do responsável. Não é mais necessário procurar o dia nem digitar manualmente na célula.
+                <strong>Funcionalidades principais:</strong><br>
+                ✅ Interface web responsiva<br>
+                ✅ Integração com planilha Google<br>
+                ✅ Registro de faltas por turma e data<br>
+                ✅ Geração de relatórios automáticos<br>
+                ✅ Controle de acesso simples
             </p>
-            <p><strong>Funcionalidades principais:</strong></p>
-            <ul>
-                <li>Interface que facilita a marcação de faltas dos alunos</li>
-                <li>Gravação automática da assinatura do usuário responsável, dia e hora</li>
-                <li>Utilização do Google Sheets como banco de dados</li>
-                <li>Redução do tempo de registro de 1 hora para 25 minutos</li>
-            </ul>
 
-            <!-- TAGS DE TECNOLOGIAS -->
             <div class="tech-tags">
-                <span class="tag">HTML</span>
-                <span class="tag">Web Apps Script</span>
-                <span class="tag">Google Sheets/Planilhas</span>
-                <span class="tag">Google Workspace</span>
+                <span class="tag">📊 Google Sheets</span>
+                <span class="tag">📜 JavaScript</span>
+                <span class="tag">⚡ Apps Script</span>
+                <span class="tag">🌐 HTML/CSS</span>
             </div>
 
-            <!-- BOTÕES (substitua o href pelo link real do repositório) -->
             <div class="buttons">
-                <a href="COLE_AQUI_O_LINK_DO_REPOSITORIO" 
+                <a href="../index.html" class="btn btn-back">⬅ Voltar ao portfólio</a>
+                <a href="https://github.com/AlbertoBernJr/GCP-GAS/tree/main/WEB%20APP%20SCRIPT%20-%20LANCAMENTO%20FALTA%20DOS%20ALUNOS" 
                    class="btn btn-code" target="_blank">
-                   Ver código
+                   📁 Ver código fonte
                 </a>
             </div>
         </div>
 
         <footer>
             <p>
-                Projeto desenvolvido por <strong>Alberto Bernardo</strong> • 
+                Projeto desenvolvido por <strong>Alberto Bern Jr</strong> • 
                 <a href="https://github.com/AlbertoBernJr" target="_blank">GitHub</a> • 
-                <a href="https://linkedin.com/in/AlbertoBernJr" target="_blank">LinkedIn</a>
+                <a href="#" target="_blank">LinkedIn</a>
             </p>
         </footer>
     </div>
+
+    <script>
+        // =============================================
+        // 📸 CONFIGURAÇÃO DAS IMAGENS DO CARROSSEL
+        // =============================================
+        const images = [
+            'fotos/imagem1.png',   // ajuste conforme os nomes reais
+            'fotos/imagem2.png',
+            'fotos/imagem3.jpg'
+            // adicione mais imagens...
+        ];
+
+        // Elementos
+        const slidesContainer = document.getElementById('carouselSlides');
+        const indicatorsContainer = document.getElementById('carouselIndicators');
+        const btnPrev = document.getElementById('btnPrev');
+        const btnNext = document.getElementById('btnNext');
+
+        let currentIndex = 0;
+
+        // Cria os slides
+        images.forEach((src, index) => {
+            const slide = document.createElement('div');
+            slide.className = 'carousel-slide';
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = `Imagem ${index + 1} do projeto`;
+            slide.appendChild(img);
+            slidesContainer.appendChild(slide);
+
+            // Indicador
+            const indicator = document.createElement('button');
+            indicator.className = 'carousel-indicator' + (index === 0 ? ' active' : '');
+            indicator.setAttribute('data-index', index);
+            indicator.addEventListener('click', () => goToSlide(index));
+            indicatorsContainer.appendChild(indicator);
+        });
+
+        function updateCarousel() {
+            slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+            document.querySelectorAll('.carousel-indicator').forEach((ind, i) => {
+                ind.classList.toggle('active', i === currentIndex);
+            });
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            if (currentIndex < 0) currentIndex = images.length - 1;
+            if (currentIndex >= images.length) currentIndex = 0;
+            updateCarousel();
+        }
+
+        function nextSlide() {
+            goToSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentIndex - 1);
+        }
+
+        btnNext.addEventListener('click', nextSlide);
+        btnPrev.addEventListener('click', prevSlide);
+
+        updateCarousel();
+    </script>
 </body>
 </html>
