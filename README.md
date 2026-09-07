@@ -1,2 +1,2 @@
 # GCP-GAS
-Google Coud Platform e Google App Script
+Google Cloud Platform e Google App Script
