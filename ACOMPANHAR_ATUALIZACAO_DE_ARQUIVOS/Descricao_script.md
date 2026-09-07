@@ -19,7 +19,7 @@ Esta função é disparada a cada edição de célula. Ela identifica em qual co
    - Depois, **desmarca** a caixa (define como `FALSE`), indicando que aquela linha ainda não foi conferida.
 3. **Não altera a coluna H** – preserva qualquer valor existente (ex.: data de marcação anterior).
 4. **Colore a aba da planilha de laranja** (`#FFA500`), sinalizando que há alguma pendência (checkbox não marcado).
-5. **Envia um e-mail** para `alberto.bernardo@matrizeducacao.com.br` com:
+5. **Envia um e-mail** para `alberto.bernardo@ ----` com:
    - Nome da planilha e da aba.
    - Linha editada.
    - Novo valor inserido na coluna E.
