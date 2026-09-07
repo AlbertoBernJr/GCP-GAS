@@ -7,6 +7,20 @@ O script é composto por duas funções principais:
 
 ---
 
+## 🔧 Configuração do Gatilho (Trigger)
+
+Para que a função `aoEditarColunaE` seja executada automaticamente a cada edição na planilha, é necessário criar um **gatilho instalável** com as credenciais do proprietário da planilha (ou da conta que autorizou o script).
+
+### Como foi configurado:
+- **Tipo de gatilho:** Instalável (não o gatilho simples `onEdit`).
+- **Função associada:** `aoEditarColunaE`
+- **Evento:** `Ao editar` (em inglês, *On edit*)
+- **Conta que executa:** A conta que criou o gatilho (geralmente o proprietário da planilha). Isso garante que o script rode com permissões dessa conta, mesmo quando outros usuários editam a planilha.
+
+Esse gatilho é o responsável por capturar as edições e chamar a função principal.
+
+---
+
 ## 🔹 Função `aoEditarColunaE(e)`
 
 Esta função é disparada a cada edição de célula. Ela identifica em qual coluna ocorreu a alteração e age de acordo.
@@ -54,5 +68,6 @@ Se não houver nenhuma checkbox na coluna G, a cor da aba não é alterada.
 
 ## ✅ Em resumo
 
+- **Gatilho instalável** captura qualquer edição na planilha e chama a função principal.
 - **Coluna E** → gera pendência: registra data/hora, desmarca checkbox, colore a aba de laranja e notifica por e‑mail.
 - **Coluna G** → confirma pendência: ao marcar, registra a data em H; ao desmarcar, limpa H. Em seguida, verifica se todas as caixas estão marcadas para decidir se a aba deve voltar à cor normal ou continuar laranja.
