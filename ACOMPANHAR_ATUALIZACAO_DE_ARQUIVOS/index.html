@@ -37,22 +37,92 @@
             margin-bottom: 30px;
         }
 
-        .video-wrapper {
+        /* ===== CARROSSEL ===== */
+        .carousel-container {
             position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            margin-bottom: 30px;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 30px;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            background: #1e293b;
         }
 
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel-slide img {
             width: 100%;
-            height: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            background: #0f172a;
+            display: block;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(15, 23, 42, 0.7);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(56, 189, 248, 0.8);
+        }
+
+        .carousel-btn.prev {
+            left: 15px;
+        }
+
+        .carousel-btn.next {
+            right: 15px;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .carousel-indicator.active {
+            background: #38bdf8;
         }
 
         .description {
@@ -137,15 +207,14 @@
         <h1>Automação de Acompanhamento de Atualizações no Google Sheets</h1>
         <p class="subtitle">Sistema de notificação e controle de pendências para documentos educacionais</p>
 
-        <!-- 🎥 VÍDEO DO YOUTUBE (verifique se o link é a demonstração correta) -->
-        <div class="video-wrapper">
-            <iframe 
-                src="https://www.youtube.com/embed/8IlT4zMjFiw" 
-                title="Demonstração do projeto de acompanhamento de atualizações"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
+        <!-- 🎠 CARROSSEL DE IMAGENS -->
+        <div class="carousel-container" id="carousel">
+            <div class="carousel-slides" id="carouselSlides">
+                <!-- As imagens serão inseridas via JavaScript -->
+            </div>
+            <button class="carousel-btn prev" id="btnPrev">&#10094;</button>
+            <button class="carousel-btn next" id="btnNext">&#10095;</button>
+            <div class="carousel-indicators" id="carouselIndicators"></div>
         </div>
 
         <!-- 📋 DESCRIÇÃO DO PROJETO -->
@@ -179,7 +248,6 @@
                 processando em média 7 atualizações por semana com notificações automáticas e rastreabilidade completa.
             </p>
 
-            <!-- TAGS DE TECNOLOGIAS -->
             <div class="tech-tags">
                 <span class="tag">Google Sheets</span>
                 <span class="tag">Google Apps Script</span>
@@ -189,14 +257,13 @@
                 <span class="tag">Gatilho Instalável</span>
             </div>
 
-            <!-- BOTÕES -->
             <div class="buttons">
                 <a href="https://github.com/AlbertoBernJr/GCP-GAS/tree/main/ACOMPANHAR_ATUALIZACAO_DE_ARQUIVOS" 
                    class="btn btn-code" target="_blank">
-                   📁 Ver código
+                   📁 Ver código fonte
                 </a>
-                <!-- Se houver página principal do portfólio, adicione: -->
-                <!-- <a href="index.html" class="btn btn-back">← Voltar ao portfólio</a> -->
+                <!-- Se houver página principal do portfólio, descomente: -->
+                <!-- <a href="../index.html" class="btn btn-back">⬅ Voltar ao portfólio</a> -->
             </div>
         </div>
 
@@ -208,5 +275,71 @@
             </p>
         </footer>
     </div>
+
+    <script>
+        // =============================================
+        // 📸 CONFIGURAÇÃO DAS IMAGENS DO CARROSSEL
+        // =============================================
+        const images = [
+            'Fotos/01.png',
+            'Fotos/02.1.png',
+            'Fotos/02.2.png',
+            'Fotos/03.png'
+            // adicione mais imagens...
+        ];
+
+        // Elementos
+        const slidesContainer = document.getElementById('carouselSlides');
+        const indicatorsContainer = document.getElementById('carouselIndicators');
+        const btnPrev = document.getElementById('btnPrev');
+        const btnNext = document.getElementById('btnNext');
+
+        let currentIndex = 0;
+
+        // Cria os slides
+        images.forEach((src, index) => {
+            const slide = document.createElement('div');
+            slide.className = 'carousel-slide';
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = `Imagem ${index + 1} do projeto`;
+            slide.appendChild(img);
+            slidesContainer.appendChild(slide);
+
+            // Indicador
+            const indicator = document.createElement('button');
+            indicator.className = 'carousel-indicator' + (index === 0 ? ' active' : '');
+            indicator.setAttribute('data-index', index);
+            indicator.addEventListener('click', () => goToSlide(index));
+            indicatorsContainer.appendChild(indicator);
+        });
+
+        function updateCarousel() {
+            slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+            document.querySelectorAll('.carousel-indicator').forEach((ind, i) => {
+                ind.classList.toggle('active', i === currentIndex);
+            });
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            if (currentIndex < 0) currentIndex = images.length - 1;
+            if (currentIndex >= images.length) currentIndex = 0;
+            updateCarousel();
+        }
+
+        function nextSlide() {
+            goToSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentIndex - 1);
+        }
+
+        btnNext.addEventListener('click', nextSlide);
+        btnPrev.addEventListener('click', prevSlide);
+
+        updateCarousel();
+    </script>
 </body>
 </html>
